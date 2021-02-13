@@ -7,7 +7,7 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
 
-from .models import Choice, Question
+from .models import Choice, Question, Thoughts
 
 from django.utils import timezone
 
@@ -58,5 +58,38 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+
+class thotText(generic.ListView):
+    model = Thoughts
+    template_name = 'polls/thoughts.html'
+
+def updateThoughtList(request):
+     # thought = get_object_or_404(Thoughts)
+     # try:
+     #     input_thought = thought.get(pk=request.POST['thought'])
+     # except (KeyError, Thoughts.DoesNotExist):
+     #     # Redisplay the question voting form.
+     #     return render(request, 'polls/thoughts.html', {
+     #         'error_message': "You didn't enter a thought."
+     # })
+     # else:
+     #     input_thought.save()
+     # return HttpResponseRedirect(reverse('polls:list'))
+    try:
+        submission = Thoughts(thoughtText=request.POST['thot'])
+    except (KeyError, Thoughts.DoesNotExist):
+        return render(request, 'polls/thoughts.html', {
+            'error_message': "You didn't enter a thought."
+        })
+    else:
+        submission.save()
+    return HttpResponseRedirect(reverse('polls:list'))
+
+
+class ThoughtListView(generic.ListView):
+    model = Thoughts
+    template_name = 'polls/list.html'
+    context_object_name = 'latest_thought_list'
+
 
 

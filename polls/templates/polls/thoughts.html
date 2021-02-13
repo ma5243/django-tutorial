@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thoughts</title>
+</head>
+<body>
+    <div class="myDiv">
+        <h1>Thoughts</h1>
+            <form action="submit/" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input type="text" name="thot">
+
+                <input type="submit" value="Submit">
+            </form>
+    </div>
+</body>
+</html>

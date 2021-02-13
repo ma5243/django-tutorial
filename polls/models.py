@@ -29,3 +29,9 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
+
+class Thoughts(models.Model):
+    thoughtText = models.TextField()
+
+    def __str__(self):
+        return self.thoughtText

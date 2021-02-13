@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+    {% if latest_thought_list %}
+    <ul>
+    {% for thought in latest_thought_list %}
+        <li>{{ thought.thoughtText }}</li>
+    {% endfor %}
+    </ul>
+    {% else %}
+    <p>No thots are available. :( </p>
+    {% endif %}
+    <a href="{% url 'polls:thoughts'%}">Another thought?</a>
+</body>
+</html>
