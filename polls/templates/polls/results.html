@@ -1,9 +1,37 @@
-<h1>{{ question.question_text }}</h1>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+{% load static %}
 
-<ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-{% endfor %}
-</ul>
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
 
-<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+  <a class="navbar-brand" href="#">Polls App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="{% url 'polls:index' %}">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Detail</a>
+      <a class="nav-item nav-link" href="#">Results</a>
+      <a class="nav-item nav-link" href="#">Thoughts</a>
+    </div>
+  </div>
+</nav>
+
+<h1 class="center downp uppad"> {{ question.question_text }} </h1>
+
+
+<table class="table table-dark table-bordered form-control-inline2 center ">
+            {% for choice in question.choice_set.all %}
+            <tr class="center">
+                <th> {{ choice.choice_text }} </th>
+                <td class=""> {{ choice.votes }} vote{{ choice.votes|pluralize }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+<div class="center downp uppad">
+            <a href="{% url 'polls:detail' question.id %}">Vote Again</a>
+</div>

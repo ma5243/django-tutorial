@@ -2,6 +2,29 @@ li a {
     color: green;
 }
 
-body {
-    background: white url("images/background.gif") no-repeat;
+.center{
+    text-align: center;
 }
+.downp {
+    padding-bottom: 40px;
+}
+.uppad {
+    padding-top: 40px;
+}
+
+.form-control-inline {
+    width: 40em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-control-inline2 {
+    width: 12em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+li {
+  list-style-type: none;
+ }

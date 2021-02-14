@@ -1,3 +1,12 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"
+      xmlns:font-size="http://www.w3.org/1999/xhtml" xmlns:font-size="http://www.w3.org/1999/xhtml">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,15 +14,36 @@
     <title>Thoughts</title>
 </head>
 <body>
-    <div class="myDiv">
-        <h1>Thoughts</h1>
-            <form action="submit/" method="post">
-                {% csrf_token %}
-                {{ form }}
-                <input type="text" name="thot">
-
-                <input type="submit" value="Submit">
-            </form>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+  <a class="navbar-brand" href="#">MyProject</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="{% url 'polls:index' %}">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Detail</a>
+      <a class="nav-item nav-link" href="#">Results</a>
+      <a class="nav-item nav-link" href="#">Thoughts</a>
     </div>
+  </div>
+</nav>
+    <form action="submit/" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <div class="form-group" >
+            <h1 for="formGroupExampleInput" class="center downp uppad">Enter Thoughts: </h1>
+            <div class = "center">
+                <input type="text" class="form-control form-control-inline" id="formGroupExampleInput" placeholder="type..." name="thot">
+            </div>
+            <div class="center downp uppad"> <button type="submit" class="btn btn-dark">Submit</button> </div>
+        </div>
+    </form>
+
+    <footer class="page-footer font-small blue">
+        <div class="footer-copyright text-center py-3">© 2021 Copyright: Muhammad Abdullah
+        </div>
+    </footer>
+
 </body>
 </html>
