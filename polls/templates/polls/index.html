@@ -18,7 +18,7 @@
   </div>
 </nav>
 
-<!-- <h1 class="center downp uppad">Please select a poll! </h1>
+<h1 class="center downp uppad">Please select a poll! </h1>
     {% if latest_question_list %}
 
     <div class = "center">
@@ -28,17 +28,12 @@
         {% endfor %}
       </ul>
     </div>
-       <ul>
-        {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-        {% endfor %}
-        </ul>
         {% else %}
     <p>No polls are available.</p>
-    {% endif %} -->
+    <!-- {% endif %} -->
 
-    <footer>
-    © 2021 Copyright: Muhammad Abdullah
+    <footer class="page-footer font-small blue">
+        <div class="footer-copyright text-center py-3">© 2021 Copyright: Muhammad Abdullah</div>
     </footer>
 
 </body>
